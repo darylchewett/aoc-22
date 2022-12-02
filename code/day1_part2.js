@@ -30,6 +30,10 @@ async function processLines(){
 
     //End off the loop, sort the values
 
+    //Last set may OR may NOT have had a blank line at the end, only push this last total if it's not zero
+        if (currentCount !== 0)
+            array.push(currentCount);
+
     array.sort((a,b)=>{return b - a})
 
     console.log(array)
