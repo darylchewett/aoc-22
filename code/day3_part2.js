@@ -12,7 +12,7 @@ const decodePriority = (letter)=>{
 
     let priority = 0;
 
-    //if it's a capital letter, add 26 
+    //if it's a capital letter, add 26
     if (letter === letter.toUpperCase())
         priority += 26;
 
@@ -26,28 +26,29 @@ const decodePriority = (letter)=>{
 
 let prioritySum = 0;
 
-puzzleInput.forEach((rucksack)=>{
+puzzleInput.forEach((rucksack, index)=>{
+
+    //We're checking sets of 3, so we'll just loop on the first of these sets, if we're on second or thrid or set, skip to next first entry
+    if (index % 3 !== 0 )
+        return;
 
     let itemComplete = false
-
-    let compartmentSize = rucksack.length/2
-    
     let rucksackArray = rucksack.split('')
 
-    let compartmentA = rucksackArray.slice(0,(compartmentSize))
-    let compartmentB = rucksackArray.slice(compartmentSize,(rucksack.length))
+    rucksackArray.forEach((item)=>{
 
-    
-    compartmentA.forEach((item)=>{
+        if (itemComplete===true)
+            return;
 
-        if (compartmentB.includes(item) && itemComplete === false){
-
-            prioritySum+=decodePriority(item);
-
-            itemComplete = true;
+        if(puzzleInput[index+1].includes(item) && puzzleInput[index+2].includes(item)){
+            prioritySum += decodePriority(item)
+            itemComplete=true;
         }
 
+
     })
+
+
 
 
 })
