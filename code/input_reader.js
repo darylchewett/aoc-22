@@ -2,7 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 
 
-async function processInput(fileName){
+async function tcxtLinesToArray(fileName){
 
     let returnArray = [];
 
@@ -22,4 +22,11 @@ return returnArray
 
 }
 
-exports.processInput = processInput;
+async function readLongString(fileName){
+
+    return fs.readFileSync(`inputs/${fileName}`)
+
+}
+
+exports.textLinesToArray = tcxtLinesToArray;
+exports.readLongString = readLongString;

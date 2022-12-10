@@ -3,7 +3,7 @@ const inputReader = require('./input_reader.js')
 
 async function task() {
 
-    const puzzleInput = await inputReader.processInput('day_4.txt');
+    const puzzleInput = await inputReader.textLinesToArray('day_4.txt');
 
 
     let result = 0

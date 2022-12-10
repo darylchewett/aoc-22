@@ -27,7 +27,7 @@ const moveContainer = (sourceStack, destinationStack) =>{
 
 async function task() {
 
-    const puzzleInput = await inputReader.processInput('day_5.txt');
+    const puzzleInput = await inputReader.textLinesToArray('day_5.txt');
 
     puzzleInput.forEach((movement)=>{
 
